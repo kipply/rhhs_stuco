@@ -24,12 +24,12 @@ for i, attendee in enumerate(attendees):
 	    version = 2,
 	    error_correction = qrcode.constants.ERROR_CORRECT_H,
 	    box_size = 10,
-	    border = 4,
+	    border = 2,
 	)
 
 	data = "%s%s%s" % (order_id, id, seq_num)
 	qr.add_data(data)
 	qr.make(fit=True)
 
-	img = qr.make_image()
+	img = qr.make_image(back_color="transparent")
 	img.save('qrcodes/%s.png' % name)
