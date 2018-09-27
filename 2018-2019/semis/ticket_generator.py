@@ -1,5 +1,7 @@
 import requests
 import qrcode 
+import random 
+
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
@@ -38,8 +40,8 @@ for i, attendee in enumerate(attendees):
 	)
 
 	table_number = str(5)
-	flight_number = "AC327"
-	gate = "24"
+	flight_number = "%s%d" % (random.choice(["AC", "BRU", "A", "AF"]))
+	gate = random.randint(1, 99)
 
 	qr_data = "%s%s%s" % (order_id, id, seq_num)
 	qr.add_data(qr_data)
